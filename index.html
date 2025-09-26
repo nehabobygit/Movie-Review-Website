@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Review Website</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div id="dynamic-bg"></div> 
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <!-- Move site name to the left -->
+                <span class="navbar-brand fw-bold" style="font-size:1.5rem; color:#fff;">
+                    moviereview.com 🍿
+                </span>
+                <div class="collapse navbar-collapse show" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- Left empty, no links -->
+                    </ul>
+                </div>
+                <form class="d-flex" id="search-form" onsubmit="event.preventDefault()">
+                    <input class="form-control me-2" type="search" placeholder="Search movies..." aria-label="Search" id="movie-search-nav">
+                    <button class="btn btn-outline-light" type="submit">Search</button>
+                </form>
+                <div class="d-flex ms-3">
+                    <a class="nav-link text-white me-3" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
+                    <span class="nav-item text-white ms-3">🔍</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- Updated Hero Banner with Slideshow -->
+    <div id="hero-banner" class="d-flex align-items-center justify-content-center text-white">
+    <div id="hero-slideshow" class="hero-slideshow">
+        </div>
+    <div class="hero-content">
+        
+        <div class="slideshow-controls">
+            <div class="slide-indicators">
+                </div>
+        </div>
+        
+        <!-- <h1 id="hero-title">Review a Movie</h1> -->
+        
+    </div>
+</div>
+
+    <main class="container py-4"> 
+        <h2 class="mb-4">Popular Movies</h2>
+        
+        <div class="row" id="movie-list">
+        </div>
+
+        <div id="movie-detail-section" style="display: none;">
+            <button class="btn btn-secondary mb-3" id="back-to-list">← Back to List</button>
+            
+            <!-- Updated movie detail header with centered title -->
+            <div class="movie-detail-header">
+                <h1 id="movie-title"></h1>
+                <p id="movie-description"></p>
+            </div>
+            
+            <!-- New layout container for review section with poster -->
+            <div class="review-section-container">
+                <div class="review-content">
+                    <div id="review-section" class="mt-4">
+                        <h3>Reviews</h3>
+                        <div id="user-reviews">
+                        </div>
+                        <hr>
+                        <div class="card p-3 mt-4">
+                            <h5>Submit a Review</h5>
+                            <form id="review-form">
+                                <div class="mb-3">
+                                    <label for="review-rating" class="form-label">Rating</label>
+                                    <select class="form-select" id="review-rating" required>
+                                        <option value="">Select a rating</option>
+                                        <option value="5">⭐⭐⭐⭐⭐</option>
+                                        <option value="4">⭐⭐⭐⭐</option>
+                                        <option value="3">⭐⭐⭐</option>
+                                        <option value="2">⭐⭐</option>
+                                        <option value="1">⭐</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="review-comment" class="form-label">Comment</label>
+                                    <textarea class="form-control" id="review-comment" rows="3" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit Review</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Movie poster container on the right -->
+                <div class="movie-poster-container">
+                    <img id="movie-poster-detail" class="movie-poster-detail" src="" alt="Movie Poster">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form id="login-form">
+        <div class="modal-header">
+          <h5 class="modal-title" id="loginModalLabel">Login</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+                <label for="login-name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="login-name" required>
+            </div>
+            <div class="mb-3">
+                <label for="login-email" class="form-label">Email ID</label>
+                <input type="email" class="form-control" id="login-email" required>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script2.js"></script>
+</body>
+</html>
